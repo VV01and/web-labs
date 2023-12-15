@@ -1,0 +1,17 @@
+.fly-animation-container {
+    width: 100px;
+    height: 100px;
+}
+
+.fly-animation-container > #flying_button {
+    margin-top: 0%;
+    animation-name: fly;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes fly {
+    0%      {margin-top: 0%;}
+    50%     {margin-top: 80%;}
+    100%    {margin-top: 0%;}
+}
