@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Лабораторна робота №3</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+</head>
+<body>
+    <nav>
+        <a href="../index.html">На головну для лабораторних робіт</a>
+    </nav>
+    <hr>
+    <div id="app">
+        <div>
+            <p for="imageSelect">Виберіть зображення:</p>
+            <select v-model="chosenOption" id="imageSelect" @change="handleChange">
+                <option v-for="i in 9" :value="`./images/${i}.jpg`" :key="i">
+                    {{ `${i}.jpg` }}
+                </option>
+            </select>
+            <br><br>
+
+            <label for="imageWidth">Ширина:</label>
+            <input type="number" v-model="imageWidth" id="imageWidth">
+
+            <label for="imageHeight">Висота:</label>
+            <input type="number" v-model="imageHeight" id="imageHeight">
+
+            <label for="imageBorderWidth">Товщина рамки:</label>
+            <input type="number" v-model="imageBorderWidth" id="imageBorderWidth">
+
+            <label for="imageBorderWidth">Альтернативний текст:</label>
+            <input type="text" v-model="imageAlternativeText" id="imageAlternativeText">
+
+            <p>Вибрана опція: {{ chosenOption }}</p>
+            <p>Розмір зображення: {{ imageWidth }} x {{ imageHeight }}</p>
+            <p>Товщина рамки зображення: {{ imageBorderWidth }}</p>
+            <p>Альтернативний текст зображення: {{ imageAlternativeText }}</p>
+            <img :src="chosenOption" :width="imageWidth" :height="imageHeight" :border="imageBorderWidth" :alt="imageAlternativeText">
+        </div>
+    </div>
+
+    <script>
+        new Vue({
+            el: '#app',
+            data() {
+                return {
+                    chosenOption: "./images/1.jpg",
+                    imageWidth: 500,
+                    imageHeight: 700,
+                    imageBorderWidth: 3,
+                    imageAlternativeText: "1984 book cover"
+                };
+            }
+        });
+    </script>
+
+</body>
+</html>
